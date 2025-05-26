@@ -1,11 +1,10 @@
 //HAMBURGER NAVBAR 
-const toggle = document.getElementById('menu-toggle');
-const navLink = document.querySelector('.nav-links');
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-toggle.addEventListener('click', () => {
-    navLink.classList.toggle('show');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open');
+  navLinks.classList.toggle('show');
 });
-
-
 //Active navbar 
 
