@@ -7,11 +7,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   gap: 2rem;
   position: relative;
   flex-wrap: wrap;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 20px 10px; /* Same horizontal padding as .gallery */
 }
 
 /* Logo centrado */

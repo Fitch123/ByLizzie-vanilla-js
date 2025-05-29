@@ -1,5 +1,41 @@
 body {
-  font-family: 'Playfair Display', serif;
-  background-color: #ffffff; 
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+.gallery-section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-container {
+  max-width: 1000px; /* Matches the .gallery width */
+  width: 100%;
+}
+
+.gallery-container h1 {
+  font-size: 2rem;
+  margin: 0 0 20px 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
