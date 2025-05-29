@@ -6,5 +6,6 @@ menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('open');
   navLinks.classList.toggle('show');
 });
-//Active navbar 
+
+
 

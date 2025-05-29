@@ -2,22 +2,41 @@ body {
   margin: 0;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1002;
+  background: white;
+  transition: transform 0.3s ease-in-out;
+}
+
 .navbar {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  position: relative;
+  gap: 1.5rem;
   flex-wrap: wrap;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
   margin: 0;
-  padding: 20px 10px; /* Same horizontal padding as .gallery */
+  padding: 20px 0; /* Same horizontal padding as .gallery */
+}
+
+.navbar-inner {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 /* Logo centrado */
-.logo {
-  font-size: 1.5rem;
+.logo a {
+  text-decoration: none;
+  font-size: 2rem;
   font-weight: bold;
   color: #fb6f92; 
   text-align: center;
@@ -43,6 +62,63 @@ body {
 .nav-links li a:hover {
   color: #fb6f92; 
   transform: scale(1.05);
+}
+
+/* Container for icons */
+.header-icons {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+}
+
+/* Base icon link styles */
+.icon-link {
+  display: inline-flex;
+  position: relative;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Icon sizing and coloring */
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #333; /* Default color using currentColor */
+  transition: all 0.3s ease;
+}
+
+.icon-link:hover .icon {
+  color: #fb6f92; /* Your pink color */
+  transform: scale(1.1);
+}
+
+/* Cart badge styling */
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: #fb6f92;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accessibility - hide from view but not screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* Botón hamburguesa para móviles */
@@ -106,39 +182,60 @@ body {
 /* Responsive menu */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: row; /* keep logo + hamburger on the same line */
+    height: auto;
+    padding: 0;
+  }
+
+  .navbar-inner {
+    height: 60px;
+    padding: 0 1rem;
+    position: relative;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .header-icons {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
   }
 
   .nav-links {
+    display: none;
     position: fixed;
-    top: 60px; /* height of navbar (adjust if your navbar height changes) */
+    top: 60px;
     left: 0;
-    height: 0;
     width: 100vw;
-    background-color: #ffffff; /* semi-transparent */
-    overflow: hidden;
-    display: flex;
+    height: 0;
+    background-color: #ffffff;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    transition: height 0.4s ease;
-    z-index: 999; /* below navbar */
+    transition: height 0.8s ease;
+    z-index: 999;
   }
 
   .nav-links.show {
-    height: calc(100vh - 60px); /* full screen minus navbar height */
-  }
-
-  .menu-toggle {
-    display: block;
-    position: fixed; /* stay fixed on screen */
-    top: 5px; /* center vertically in navbar */
-    left: 15px;
-    z-index: 1001; /* above nav-links and navbar */
+    display: flex;
+    height: calc(100vh - 60px);
   }
 }
+
