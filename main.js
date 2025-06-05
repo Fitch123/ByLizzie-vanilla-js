@@ -33,9 +33,11 @@ function renderGallery(type, containerId) {
     if (item.type === type) {
       const li = document.createElement("li");
       li.innerHTML = `
+        <a href="${item.href}">
         <img src="${item.img}" alt="${item.name}">
         <h3>${item.name}</h3>
         <p>$${item.price} MXN</p>
+        </a>
       `;
       gallery.appendChild(li);
     }
